@@ -13,6 +13,31 @@
   }
 }
 
+.row {
+  display:table;
+  width:100%
+}
+
+.column {
+  float: left;
+  text-align:center;
+  width: 33.33%;
+  background: yellow;
+  padding: .2em;
+  margin: .2em;
+
+}
+
+.buttons {
+  width: 33%
+}
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

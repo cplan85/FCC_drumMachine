@@ -18,11 +18,18 @@
   width:100%
 }
 
+.normal {
+  background: yellow;
+}
+
+.activate {
+  background:red;
+}
+
 .column {
   float: left;
   text-align:center;
   width: 33.33%;
-  background: yellow;
   padding: .2em;
   margin: .2em;
 

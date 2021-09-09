@@ -1,5 +1,6 @@
 import './App.css';
 import Button from 'react-bootstrap/Button';
+import React, {useEffect, useState} from 'react';
 
 const audioArray = [
   {
@@ -60,7 +61,7 @@ const audioArray = [
 
 function App() {
 
-
+  const [volume, setVolume] =useState(.5);
   return (
     <div className="center">
       <div className="row">
@@ -69,22 +70,42 @@ function App() {
       {audioArray.map((clip) => {
         return (
         
-          <Pad key={clip.div} clip={clip}/>)
+          <Pad key={clip.div} clip={clip} volume={volume}/>)
       })}
       </div>
+      <input type="range" id="vol" onChange={e => setVolume(e.target.value)} value={volume} name="vol" min="0" max="1" step="0.01"></input>
     </div>
   );
 }
 
-function Pad  ({clip}) {
-  const playSound = () => {
+function Pad  ({clip, volume}) {
+
+  const [active, setActive] =useState(false);
+
+  const playSound = ( ) => {
     const audioTag = document.getElementById(clip.keyTrigger)
     audioTag.currentTime = 0;
     audioTag.play();
+    audioTag.volume = volume;
+    setActive(true);
+    setTimeout(() => setActive(false), 200)
   };
 
+  const handleKeyPress = (e) => {
+     if (e.keyCode === clip.keyCode)
+     {playSound();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress)
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress)
+    }
+  },[])
+
   return (
-   <div className="column" onClick={playSound} size="lg" variant="secondary"> 
+   <div className={active? "activate column" :"column normal"} onClick={playSound} size="lg" variant="secondary"> 
     <audio className="clip" id={clip.keyTrigger} src={clip.url}/>
     {clip.keyTrigger}</div>
   )

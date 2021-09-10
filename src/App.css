@@ -13,36 +13,76 @@
   }
 }
 
+#drum-machine {
+  margin-top: 20%;
+}
+
+h2,
+h3,
+h5 {
+  text-align: center;
+}
+
+.attributes {
+  left: 50%;
+  margin: auto;
+  width: 75%;
+  text-align: center;
+}
+
+body {
+  font-family: "Gruppo";
+  font-size: 22px;
+  font-weight: lighter;
+
+  background: rgb(63, 94, 251);
+  background: linear-gradient(
+    176deg,
+    rgba(63, 94, 251, 1) 0%,
+    rgb(202, 245, 116) 100%
+  );
+  background-attachment: fixed;
+  height: 100%;
+}
 .row {
-  display:table;
-  width:100%
+  left: 50%;
+  margin: auto;
+  display: table;
 }
 
 .normal {
-  background: yellow;
+  background: #ccff66;
 }
 
 .activate {
-  background:red;
+  background: rgb(111, 134, 248) 0%;
 }
 
-.column {
+.drum-pad {
   float: left;
-  text-align:center;
-  width: 33.33%;
-  padding: .2em;
-  margin: .2em;
-
+  text-align: center;
+  width: 25%;
+  padding: 0.4em;
+  margin: 0.2em;
+  color: black;
+  border-radius: 0.4em;
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem rgb(110, 161, 255));
 }
 
 .buttons {
-  width: 33%
+  width: 33%;
 }
 .center {
   margin: auto;
   width: 50%;
-  border: 3px solid green;
+  border: 0.5px solid rgb(167, 255, 53);
   padding: 10px;
+  background: black;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0.5rem 0.5rem 1rem rgb(81, 117, 13));
+  border-radius: 0.1em;
 }
 
 .App-header {
